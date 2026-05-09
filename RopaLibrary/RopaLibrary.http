@@ -1,0 +1,6 @@
+@RopaLibrary_HostAddress = http://localhost:5173
+
+GET {{RopaLibrary_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
