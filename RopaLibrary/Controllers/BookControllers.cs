@@ -34,6 +34,7 @@ namespace RopaLibraryNowAPI.Controllers
             }
         };
 
+        [HttpGet]
         public IActionResult GetAll()
         {
             return Ok(new
@@ -45,6 +46,7 @@ namespace RopaLibraryNowAPI.Controllers
             });
         }
 
+        [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             var book = books.FirstOrDefault(x => x.Id == id);
@@ -64,6 +66,7 @@ namespace RopaLibraryNowAPI.Controllers
             });
         }
 
+        [HttpPost]
         public IActionResult Create([FromBody] Book newBook)
         {
             newBook.Id = books.Count + 1;
@@ -79,6 +82,7 @@ namespace RopaLibraryNowAPI.Controllers
 
         }
 
+        [HttpPut("{id}")]
         public IActionResult Update(int id,
             [FromBody] Book Updatebook)
         {
@@ -105,6 +109,7 @@ namespace RopaLibraryNowAPI.Controllers
             });
         }
 
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var book = books.FirstOrDefault(x => x.Id == id);
