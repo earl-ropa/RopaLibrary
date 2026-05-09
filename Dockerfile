@@ -6,10 +6,10 @@ ENV ASPNETCORE_URLS=hhtp://+:8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY . .
-RUN dotnet restore "RopaLibraryNowAPI/RopaLibraryNowAPI.csproj"
-RUN dotnet publish "RopaLibraryNowAPI/RopaLibraryNowAPI.csproj" -c Release -o /app/out
+RUN dotnet restore "RopaLibrary/RopaLibrary.csproj"
+RUN dotnet publish "RopaLibrary/RopaLibrary.csproj" -c Release -o /app/out
 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/out .
-ENTRYPOINT ["dotnet", "RopaLibraryNowAPI.dll"]
+ENTRYPOINT ["dotnet", "RopaLibrary.dll"]
